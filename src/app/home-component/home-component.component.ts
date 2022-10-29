@@ -16,11 +16,12 @@ export class HomeComponentComponent implements OnInit {
 
     //this.empleado=this.empleadosService.empleado;
 
-  }
+  } 
 
   ngOnInit(): void {
     this.empleado=this.empleadosService.empleado;
   }
+  
   empleado:Empleado[]=[];
 
   agregarEmpleado(){
