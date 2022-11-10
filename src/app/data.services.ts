@@ -14,7 +14,15 @@ export class DataServices{
     guardarEmpleados(empleados:Empleado[]){
         this.httpClient.put('https://mis-clientes-e4b4c-default-rtdb.firebaseio.com/datos.json',empleados).subscribe(
             response=>console.log("Se ha guardado los empleados: "+response),
-            error=>console.log("Error: "+error)
-    );
+            error=>console.log("Error: "+error),
+        );
+    }
+
+    actualizarEmpleado(indice:number,empleado:Empleado){
+        let url="https://mis-clientes-e4b4c-default-rtdb.firebaseio.com/datos/"+indice+".json";
+        this.httpClient.put(url,empleado).subscribe(
+            response=>console.log("Se ha actualizado correctamente el empleado: "+response),
+            error=>console.log("Error: "+error),
+        );
     }
 }
