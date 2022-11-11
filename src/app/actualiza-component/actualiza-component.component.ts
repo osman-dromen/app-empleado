@@ -49,10 +49,12 @@ export class ActualizaComponentComponent implements OnInit {
       //this.miServicio.muestraMensaje("Información del empleado: "+miEmpleado.nombre);  
       this.empleadosService.actualizarEmpleado(this.indice,miEmpleado);
     
-      this.router.navigate([""]);
-    }else{
+      this.router.navigate(['/']);
+      
+    }else if(this.accion==2){
       this.empleadosService.eliminarEmpleado(this.indice);    
-      this.router.navigate([""]);
+      this.router.navigate(['/']);
+      
     }
   }
   

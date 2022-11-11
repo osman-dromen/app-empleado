@@ -41,14 +41,18 @@ export class EmpleadosService{
 
       actualizarEmpleado(indice:number,empleado:Empleado){
         let empleadoModificado=this.empleado[indice];
+        
         empleadoModificado.nombre=empleado.nombre;
         empleadoModificado.apellido=empleado.apellido;
         empleadoModificado.cargo=empleado.cargo;
         empleadoModificado.salario=empleado.salario;
+
         this.dataService.actualizarEmpleado(indice,empleado);
       }
 
       eliminarEmpleado(indice:number){
-        this.empleado.splice(indice,1)
+        this.empleado.splice(indice,1);
+        this.dataService.eliminarEmpleado(indice);
+        if(this.empleado!=null) this.dataService.guardarEmpleados(this.empleado);
       }
 }
